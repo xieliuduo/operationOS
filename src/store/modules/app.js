@@ -1,11 +1,11 @@
 import Cookies from 'js-cookie'
-
 const app = {
   state: {
     sidebar: {
       opened: !+Cookies.get('sidebarStatus')
     },
     language: Cookies.get('language') || 'en'
+    // language: Cookies.get('language') || 'zh'
   },
   mutations: {
     TOGGLE_SIDEBAR: state => {
