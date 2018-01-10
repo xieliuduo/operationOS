@@ -1,10 +1,10 @@
 <template>
   <div class="app-container">
     <div style="margin-bottom:15px;">{{$t('permission.roles')}}： {{roles}}</div>
-    {{$t('permission.switchRoles')}}：
+    <!-- {{$t('permission.switchRoles')}}：
     <el-radio-group v-model="switchRoles">
       <el-radio-button label="editor"></el-radio-button>
-    </el-radio-group>
+    </el-radio-group> -->
   </div>
 </template>
 
