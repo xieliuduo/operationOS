@@ -5,7 +5,6 @@
     </keep-alive>
   </transition>
 </template>
-
 <script>
 export default {
   name: 'TableMain',

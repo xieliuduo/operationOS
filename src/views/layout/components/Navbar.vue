@@ -5,10 +5,13 @@
     <breadcrumb class="breadcrumb-container"></breadcrumb>
 
     <div class="right-menu">
-      <error-log class="errLog-container right-menu-item"></error-log>
+      <!-- <error-log class="errLog-container right-menu-item"></error-log> -->
 
       <el-tooltip effect="dark" :content="$t('navbar.screenfull')" placement="bottom">
-        <screenfull class="screenfull right-menu-item"></screenfull>
+        <!-- <screenfull class="screenfull right-menu-item"></screenfull> -->
+      </el-tooltip>
+      <el-tooltip effect="dark" :content="$t('navbar.screenfull')" placement="bottom">
+      <span class="os-title">家医运营管理后台</span>
       </el-tooltip>
       <!-- <lang-select class="international right-menu-item"></lang-select> -->
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
@@ -68,6 +71,10 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+.os-title{
+  color:green;
+      vertical-align: text-bottom;
+}
 .navbar {
   height: 50px;
   line-height: 50px;
