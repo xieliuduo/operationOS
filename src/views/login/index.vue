@@ -5,18 +5,21 @@
         <h3 class="title">{{$t('login.title')}}</h3>
       </div>
       <el-form-item prop="username">
-        <span class="svg-container svg-container_login">
-          <svg-icon icon-class="user" />
+        <!-- <i class="icon iconfont icon-menu "></i> -->
+        <span class="icon-container svg-container_login">
+          
+          <i class="icon iconfont icon-people "></i>
+          
         </span>
         <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="username" />
       </el-form-item>
       <el-form-item prop="password">
-        <span class="svg-container">
-          <svg-icon icon-class="password" />
+        <span class="icon-container">
+         <i class="icon iconfont icon-lock "></i>
         </span>
         <el-input name="password" :type="passwordType" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on" placeholder="password" />
         <span class="show-pwd" @click="showPwd">
-          <svg-icon icon-class="eye" />
+         <i class="icon iconfont "></i>
         </span>
       </el-form-item>
 
@@ -30,8 +33,6 @@
         <span style="margin-right:18px;">{{$t('login.username')}} : editor</span>
         <span>{{$t('login.password')}} : {{$t('login.any')}}</span>
       </div>
-
-     
     </el-form>
   </div>
 </template>
@@ -165,7 +166,7 @@ $light_gray:#eee;
       }
     }
   }
-  .svg-container {
+  .icon-container {
     padding: 6px 5px 6px 15px;
     color: $dark_gray;
     vertical-align: middle;
