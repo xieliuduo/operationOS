@@ -7,19 +7,16 @@
       <pan-thumb class="panThumb" :image="avatar"></pan-thumb>
       <mallki className='mallki-text' text='vue-element-admin'></mallki>
       <div style="padding-top:35px;" class='progress-item'>
-        <span>Vue</span>
+        <span>+</span>
         <el-progress :percentage="70"></el-progress>
       </div>
       <div class='progress-item'>
-        <span>JavaScript</span>
+        <span>*</span>
         <el-progress :percentage="18"></el-progress>
       </div>
-      <div class='progress-item'>
-        <span>Css</span>
-        <el-progress :percentage="12"></el-progress>
-      </div>
+     
        <div class='progress-item'>
-        <span>ESLint</span>
+        <span>-</span>
         <el-progress :percentage="100" status="success"></el-progress>
       </div>
     </div>
