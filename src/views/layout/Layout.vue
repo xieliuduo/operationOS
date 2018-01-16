@@ -20,6 +20,10 @@ export default {
     AppMain,
     TagsView
   },
+  created() {
+		
+	   console.log('首页')
+	},
   computed: {
     sidebar() {
       return this.$store.state.app.sidebar

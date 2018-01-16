@@ -25,7 +25,7 @@ function filterAsyncRouter(asyncRouterMap, roles) {
         route.children = filterAsyncRouter(route.children, roles)
       }
       return true
-    }
+    } 
     return false
   })
   return accessedRouters
@@ -47,11 +47,15 @@ const permission = {
       return new Promise(resolve => {
         const { roles } = data
         let accessedRouters
+
         if (roles.indexOf('admin') >= 0) {
           accessedRouters = asyncRouterMap
         } else {
           accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
+          
         }
+        console.log('roles',roles);
+          console.log('accessedRouters',accessedRouters);
         commit('SET_ROUTERS', accessedRouters)
         resolve()
       })

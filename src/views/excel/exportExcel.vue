@@ -66,6 +66,7 @@ export default {
         const filterVal = ['id', 'title', 'author', 'pageviews', 'display_time']
         const list = this.list
         const data = this.formatJson(filterVal, list)
+        console.log('data',data);
         excel.export_json_to_excel(tHeader, data, this.filename)
         this.downloadLoading = false
       })

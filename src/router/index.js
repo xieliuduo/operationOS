@@ -24,6 +24,7 @@ import Layout from '../views/layout/Layout'
     noCache: true                if fasle ,the page will no be cached(default is false)
   }
 **/
+// 所有权限都能看到的界面
 export const constantRouterMap = [
   { path: '/login', component: _import('login/index'), hidden: true },
   { path: '/authredirect', component: _import('login/authredirect'), hidden: true },
@@ -47,13 +48,14 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
-
+// 部分权限 看到的界面
 export const asyncRouterMap = [
   {
     path: '/permission',
     component: Layout,
     redirect: '/permission/index',
-    meta: { roles: ['admin'] }, // you can set roles in root nav
+    meta: { roles: ['admin'],limit:'permission' }, // you can set roles in root nav
+
     children: [{
       path: 'index',
       component: _import('permission/index'),
@@ -61,9 +63,25 @@ export const asyncRouterMap = [
       meta: {
         title: 'permission',
         icon: 'lock',
+        limit:'permission-index',
         roles: ['admin'] // or you can only set roles in sub nav
       }
     }]
+  },
+  {
+    path: '/System_set',
+    component:Layout,
+    redirect: '/System_set/users_set',
+    name: 'users_set',
+    meta: {
+      title: '系统管理',
+      icon: 'example',
+      roles: ['admin']
+    },
+     children: [
+      { path: 'users_set', component: _import('System_set/users_set'), name: 'users_set1', meta: { title: '用户管理' }},
+      { path: 'logs_set', component: _import('System_set/logs_set'), name: 'logs_set1', meta: { title: '操作日志' }}
+    ]
   },
   // {
   //   path: '/components',
@@ -94,35 +112,52 @@ export const asyncRouterMap = [
   //     { path: 'mixchart', component: _import('charts/mixChart'), name: 'mixChart', meta: { title: 'mixChart', noCache: true }}
   //   ]
   // },
-
+  
   {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table/complex-table',
-    name: 'example',
+    path: '/people-control/table',
+    component:Layout,
+    redirect: '/people-control/table/complextable',
+    name: 'people-control',
     meta: {
-      title: 'example',
-      icon: 'example'
+      title: '签约管理',
+      icon: 'table'
     },
-    children: [
-      {
-        path: '/example/table',
-        component: _import('example/table/index'),
-        redirect: '/example/table/complex-table',
-        name: 'Table',
-        meta: {
-          title: 'Table',
-          icon: 'table'
-        },
-        children: [
-
-          { path: 'inline-edit-table', component: _import('example/table/inlineEditTable'), name: 'inlineEditTable', meta: { title: 'inlineEditTable' }},
-          { path: 'complex-table', component: _import('example/table/complexTable'), name: 'complexTable', meta: { title: 'complexTable' }}
-        ]
-      },
-      { path: 'tab/index', icon: 'tab', component: _import('example/tab/index'), name: 'tab', meta: { title: 'tab' }}
+     children: [
+      { path: 'sign_contract', component: _import('people-control/table/sign_contract'), name: 'signContract', meta: { title: '数据管理' }},
+      { path: 'complextable', component: _import('people-control/table/complexTable'), name: 'comTable', meta: { title: '机构用户' }},
+      { path: 'tableDemo', component: _import('people-control/table/demo'), name: 'tableDemo', meta: { title: 'demo' }},
+      { path: 'inlineedittable', component: _import('people-control/table/inlineEditTable'), name: 'inTable', meta: { title: 'inlineEdit-Table' }}
     ]
   },
+  // {
+  //   path: '/example',
+  //   component: Layout,
+  //   redirect: '/example/table/complex-table',
+  //   name: 'example',
+  //   meta: {
+  //     title: 'example',
+  //     roles: ['example'],
+  //     icon: 'example'
+  //   },
+  //   children: [
+  //     {
+  //       path: '/example/table',
+  //       component: _import('example/table/index'),
+  //       redirect: '/example/table/complex-table',
+  //       name: 'Table',
+  //       meta: {
+  //         title: 'Table',
+  //         icon: 'table'
+  //       },
+  //       children: [
+  //         { path: 'inline-edit-table', component: _import('example/table/inlineEditTable'), name: 'inlineEditTable', meta: { title: 'inlineEditTable' }},
+  //         { path: 'complex-table', component: _import('example/table/complexTable'), name: 'complexTable', meta: { title: 'complexTable' }}
+  //       ]
+  //     },
+  //     { path: 'tab/index', icon: 'tab', component: _import('example/tab/index'), name: 'tab', meta: { title: 'tab' }}
+  //   ]
+  // },
+  
 
   // {
   //   path: '/form',
