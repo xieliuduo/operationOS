@@ -7,11 +7,15 @@
     <div class="right-menu">
       <!-- <error-log class="errLog-container right-menu-item"></error-log> -->
 
-      <el-tooltip effect="dark" :content="$t('navbar.screenfull')" placement="bottom">
-        <!-- <screenfull class="screenfull right-menu-item"></screenfull> -->
-      </el-tooltip>
-      <el-tooltip effect="dark" :content="$t('navbar.screenfull')" placement="bottom">
+      <!-- <el-tooltip effect="dark" :content="$t('navbar.screenfull')" placement="bottom">
+        <screenfull class="screenfull right-menu-item"></screenfull>
+      </el-tooltip> -->
+     
+     
       <span class="os-title">家医运营管理后台</span>
+      
+        <el-tooltip class="old-os" effect="dark"  :content="'去往旧版运营后台'" placement="bottom" >
+         <a href="http://admin.homedoctor.grdoc.org/admin" target="_blank">→点击打开旧版后台</a>
       </el-tooltip>
       <!-- <lang-select class="international right-menu-item"></lang-select> -->
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
@@ -72,8 +76,14 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 .os-title{
-  color:green;
+  color:#409EFF;
       vertical-align: text-bottom;
+      font-size: 24px;
+}
+.old-os{
+  color: green;
+   vertical-align: text-bottom;
+   margin: 0 15px;
 }
 .navbar {
   height: 50px;
